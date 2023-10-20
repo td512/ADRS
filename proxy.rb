@@ -51,5 +51,5 @@ get '/api' do
     'Server' => 'RP'
   content_type :json
   register = @memorystore
-  register.to_json
+  register.sort.to_h.to_json
 end
