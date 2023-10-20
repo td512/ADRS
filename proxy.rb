@@ -51,5 +51,5 @@ get '/' do
     'Server' => 'RP'
   content_type :json
   register = @memorystore
-  { register: register }.to_json
+  register.to_json
 end
