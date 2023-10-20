@@ -46,7 +46,7 @@ get '/deregister' do
   { message: 'deleted' }.to_json
 end
 
-get '/' do
+get '/api' do
   headers\
     'Server' => 'RP'
   content_type :json
