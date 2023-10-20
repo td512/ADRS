@@ -952,12 +952,17 @@ Your browser does not support the video tag.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
 $(function(){
-  mainContent = $('#pc-list')
-  $.get('/api', function(data){
-    $.each(data, function(k, v){
-      mainContent.append(`<li class="adobe-product"><div class="products">${k}</div><span class="status"><span class="status-circle green"></span>${v["id"]}</span><div class="button-wrapper"><button class="content-button status-button open">Open</button></li>`)
-    })
-  })
+ mainContent = $('#pc-list')
+
+ $('#pc-list').on('click', 'button', function(){
+  window.location.replace('anydesk-2018d26d:' + $(this).parent().siblings('.status')[0].textContent)
+  //window.location.replace($(this).siblings('.status').value)
+ });
+ $.get('/api', function(data){
+   $.each(data, function(k, v){
+     mainContent.append(`<li class="adobe-product"><div class="products">${k}</div><span class="status"><span class="status-circle green"></span>${v["id"]}</span><div class="button-wrapper"><button class="content-button status-button open">Open</button></li>`)
+   })
+ })
 })
 </script>
 
