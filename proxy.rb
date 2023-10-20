@@ -53,3 +53,7 @@ get '/api' do
   register = @memorystore
   register.sort.to_h.to_json
 end
+
+get '/' do
+  File.read(File.join(__dir__, 'glass.html'))
+end
